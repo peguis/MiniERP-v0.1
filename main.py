@@ -1,5 +1,5 @@
 import os
-from produtos import cadastrar_produto, listar_produtos, alterar_preco, alterar_estoque
+from produtos import cadastrar_produto, listar_produtos, alterar_preco, alterar_estoque, remover_produto
 
 
 def limpar_tela():
@@ -110,8 +110,24 @@ def main():
                 print("Produto não encontrado ou estoque inválido.")
 
 
+        
         elif opcao == "5":
-            print("\n[Remoção de produto - Em desenvolvimento]")
+
+            print("\nRemover produto")
+
+            nome = input("Nome do produto: ")
+
+
+            removido = remover_produto(nome)
+
+
+            if removido:
+
+                print("Produto removido com sucesso!")
+
+            else:
+
+                print("Produto não encontrado.")
 
 
         elif opcao == "6":

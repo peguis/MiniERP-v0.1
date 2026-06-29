@@ -42,3 +42,16 @@ def alterar_estoque(nome, novo_estoque):
 
 
     return False
+
+def remover_produto(nome):
+
+    for produto in produtos:
+
+        if produto["nome"].lower() == nome.lower():
+
+            produtos.remove(produto)
+
+            return True
+
+
+    return False
