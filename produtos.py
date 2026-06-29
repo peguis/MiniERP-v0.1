@@ -1,5 +1,11 @@
-produtos = []
+import json
+import os
 
+
+ARQUIVO = "dados/produtos.json"
+
+
+produtos = []
 
 def cadastrar_produto(nome, preco, estoque):
     produto = {
@@ -9,6 +15,8 @@ def cadastrar_produto(nome, preco, estoque):
     }
 
     produtos.append(produto)
+
+    salvar_produtos()
 
     return produto
 
@@ -21,6 +29,8 @@ def alterar_preco(nome, novo_preco):
         if produto["nome"].lower() == nome.lower():
 
             produto["preco"] = novo_preco
+
+            salvar_produtos()
 
             return True
 
@@ -38,6 +48,8 @@ def alterar_estoque(nome, novo_estoque):
 
             produto["estoque"] = novo_estoque
 
+            salvar_produtos()
+
             return True
 
 
@@ -51,7 +63,39 @@ def remover_produto(nome):
 
             produtos.remove(produto)
 
+            salvar_produtos()
+
             return True
 
 
     return False
+
+def carregar_produtos():
+
+    global produtos
+
+
+    if os.path.exists(ARQUIVO):
+
+        with open(
+            ARQUIVO,
+            "r",
+            encoding="utf-8"
+        ) as arquivo:
+
+            produtos = json.load(arquivo)
+
+def salvar_produtos():
+
+    with open(
+        ARQUIVO,
+        "w",
+        encoding="utf-8"
+    ) as arquivo:
+
+        json.dump(
+            produtos,
+            arquivo,
+            indent=4,
+            ensure_ascii=False
+        )

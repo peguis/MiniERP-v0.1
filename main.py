@@ -1,5 +1,12 @@
 import os
-from produtos import cadastrar_produto, listar_produtos, alterar_preco, alterar_estoque, remover_produto
+import json
+from produtos import (cadastrar_produto, listar_produtos, alterar_preco, 
+alterar_estoque, remover_produto, carregar_produtos)
+
+ARQUIVO = "dados/produtos.json"
+
+
+produtos = []
 
 
 def limpar_tela():
@@ -22,6 +29,8 @@ def mostrar_menu():
 
 def main():
 
+    carregar_produtos()
+    
     while True:
 
         limpar_tela()
