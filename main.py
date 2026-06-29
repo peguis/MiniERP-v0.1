@@ -1,5 +1,5 @@
 import os
-from produtos import cadastrar_produto, listar_produtos
+from produtos import cadastrar_produto, listar_produtos, alterar_preco
 
 
 def limpar_tela():
@@ -65,7 +65,23 @@ def main():
 
 
         elif opcao == "3":
-            print("\n[Alteração de preço - Em desenvolvimento]")
+            print("\nAlterar preço")
+
+            nome = input("Nome do produto: ")
+
+            novo_preco = float(
+            input("Novo preço: ")
+            )
+
+            resultado = alterar_preco(
+                nome,
+                novo_preco
+            )
+
+            if resultado:
+                print("Preço alterado com sucesso!")
+            else:
+                print("Produto não encontrado.")
 
 
         elif opcao == "4":
