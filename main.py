@@ -1,4 +1,5 @@
 import os
+from produtos import cadastrar_produto
 
 
 def limpar_tela():
@@ -20,27 +21,57 @@ def mostrar_menu():
 
 
 def main():
+
     while True:
+
         limpar_tela()
         mostrar_menu()
 
         opcao = input("Escolha uma opção: ")
 
+
         if opcao == "1":
-            print("\n[Cadastro de produto - Em desenvolvimento]")
+
+            print("\nCadastro de produto")
+
+            nome = input("Nome do produto: ")
+            preco = float(input("Preço: "))
+            estoque = int(input("Estoque: "))
+
+            produto = cadastrar_produto(
+                nome,
+                preco,
+                estoque
+            )
+
+            print("\nProduto cadastrado:")
+            print(produto)
+
+
         elif opcao == "2":
             print("\n[Listagem de produtos - Em desenvolvimento]")
+
+
         elif opcao == "3":
             print("\n[Alteração de preço - Em desenvolvimento]")
+
+
         elif opcao == "4":
             print("\n[Alteração de estoque - Em desenvolvimento]")
+
+
         elif opcao == "5":
             print("\n[Remoção de produto - Em desenvolvimento]")
+
+
         elif opcao == "6":
             print("\nObrigado por utilizar o MiniERP!")
             break
+
+
         else:
             print("\nOpção inválida!")
+
 
         input("\nPressione ENTER para continuar...")
 
