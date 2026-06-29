@@ -11,3 +11,6 @@ def cadastrar_produto(nome, preco, estoque):
     produtos.append(produto)
 
     return produto
+
+def listar_produtos():
+    return produtos

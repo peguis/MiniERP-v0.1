@@ -1,5 +1,5 @@
 import os
-from produtos import cadastrar_produto
+from produtos import cadastrar_produto, listar_produtos
 
 
 def limpar_tela():
@@ -49,7 +49,19 @@ def main():
 
 
         elif opcao == "2":
-            print("\n[Listagem de produtos - Em desenvolvimento]")
+
+            print("\nProdutos cadastrados:")
+
+            lista = listar_produtos()
+
+            if not lista:
+                print("Nenhum produto cadastrado.")
+            else:
+                for produto in lista:
+                    print("-" * 30)
+                    print(f"Nome: {produto['nome']}")
+                    print(f"Preço: R$ {produto['preco']:.2f}")
+                    print(f"Estoque: {produto['estoque']}")
 
 
         elif opcao == "3":
