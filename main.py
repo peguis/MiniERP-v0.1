@@ -1,5 +1,5 @@
 import os
-from produtos import cadastrar_produto, listar_produtos, alterar_preco
+from produtos import cadastrar_produto, listar_produtos, alterar_preco, alterar_estoque
 
 
 def limpar_tela():
@@ -85,7 +85,29 @@ def main():
 
 
         elif opcao == "4":
-            print("\n[Alteração de estoque - Em desenvolvimento]")
+
+            print("\nAlterar estoque")
+
+            nome = input("Nome do produto: ")
+
+            novo_estoque = int(
+                input("Novo estoque: ")
+            )
+
+
+            resultado = alterar_estoque(
+                nome,
+                novo_estoque
+            )
+
+
+            if resultado:
+
+                print("Estoque alterado com sucesso!")
+
+            else:
+
+                print("Produto não encontrado ou estoque inválido.")
 
 
         elif opcao == "5":

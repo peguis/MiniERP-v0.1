@@ -25,3 +25,20 @@ def alterar_preco(nome, novo_preco):
             return True
 
     return False
+
+def alterar_estoque(nome, novo_estoque):
+
+    if novo_estoque < 0:
+        return False
+
+
+    for produto in produtos:
+
+        if produto["nome"].lower() == nome.lower():
+
+            produto["estoque"] = novo_estoque
+
+            return True
+
+
+    return False
